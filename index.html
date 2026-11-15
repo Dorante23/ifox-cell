@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IFOX CELL | Equipos y Accesorios</title>
+  <!-- Icono de la pestaña del navegador -->
+  <link rel="icon" href="assets/img/logo.jpeg">
   <!-- Hojas de estilo separadas -->
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/productos.css">
@@ -12,18 +14,27 @@
 </head>
 <body>
 
-  <!-- Barra Superior -->
+  <!-- Barra Superior con Navegación por Módulos -->
   <header class="navbar">
-    <div class="brand">
-      <!-- Espacio reservado para el logo cuando Luis te lo pase -->
-      <div class="logo-placeholder">
-        <i class="fa-solid fa-mobile-screen-button"></i>
-      </div>
+    <div class="brand" onclick="cambiarVista('catalogo')">
+      <img src="assets/img/logo.jpeg" alt="Logo IFOX CELL" class="logo-img">
       <div>
         <h1>IFOX CELL</h1>
         <span>Equipos • Accesorios • Servicio Técnico</span>
       </div>
     </div>
+
+    <nav class="nav-links" aria-label="Menú principal">
+      <button type="button" class="nav-tab active" data-vista="catalogo" onclick="cambiarVista('catalogo')">
+        <i class="fa-solid fa-mobile-screen-button"></i> Catálogo
+      </button>
+      <button type="button" class="nav-tab" data-vista="servicio" onclick="cambiarVista('servicio')">
+        <i class="fa-solid fa-screwdriver-wrench"></i> Servicio Técnico
+      </button>
+      <button type="button" class="nav-tab" data-vista="conocenos" onclick="cambiarVista('conocenos')">
+        <i class="fa-solid fa-store"></i> Conócenos
+      </button>
+    </nav>
 
     <button type="button" class="cart-btn" id="open-cart-btn">
       <i class="fa-solid fa-cart-shopping"></i>
@@ -32,28 +43,257 @@
     </button>
   </header>
 
-  <!-- Portada y Buscador -->
-  <section class="hero">
-    <h2>Catálogo Disponible en Tienda</h2>
-    <p>Elige el equipo o accesorio que buscas y coordina tu compra directo por WhatsApp.</p>
-    <div class="search-box">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="search-input" placeholder="Buscar iPhone, iPad, cargador...">
+  <!-- MÓDULO 1: CATÁLOGO DE EQUIPOS -->
+  <div id="vista-catalogo">
+    <section class="hero">
+      <h2>Catálogo Disponible en Tienda</h2>
+      <p>Elige el equipo o accesorio que buscas, compáralos o coordina tu compra por WhatsApp.</p>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="Buscar iPhone, iPad, capacidad...">
+      </div>
+    </section>
+
+    <section class="filters-wrapper">
+      <nav class="categories" id="category-filters" aria-label="Categorías de productos">
+        <button type="button" class="chip active" data-category="Todos">Todos</button>
+        <button type="button" class="chip" data-category="iPhone">iPhone</button>
+        <button type="button" class="chip" data-category="iPad">iPad</button>
+        <button type="button" class="chip" data-category="Accesorios">Accesorios</button>
+      </nav>
+
+      <div class="condition-filters" id="condition-filters">
+        <span class="filter-label">Estado:</span>
+        <button type="button" class="cond-chip active" data-condition="Todos">Todos</button>
+        <button type="button" class="cond-chip" data-condition="Nuevo">Nuevos (Sellados)</button>
+        <button type="button" class="cond-chip" data-condition="Seminuevo">Seminuevos</button>
+      </div>
+    </section>
+
+    <main class="container">
+      <div class="product-grid" id="product-grid"></div>
+    </main>
+  </div>
+
+  <!-- MÓDULO 2: SERVICIO TÉCNICO -->
+  <section id="vista-servicio" class="servicio-view hidden">
+    <div class="conocenos-header">
+      <span class="conocenos-tag">Soporte Especializado</span>
+      <h2>Servicio Técnico Apple</h2>
+      <p>Evaluamos y reparamos tu iPhone o iPad con repuestos de calidad, diagnóstico previo y tiempos de entrega estimados según el tipo de falla.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+        <h4>Cambio de Pantalla</h4>
+        <p>Reemplazo de módulos táctiles dañados o partidos con opciones originales y OLED de alta respuesta.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-battery-full"></i></div>
+        <h4>Reemplazo de Batería</h4>
+        <p>Instalación de baterías nuevas para recuperar la autonomía y rendimiento diario de tu equipo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+        <h4>Pin de Carga y Audio</h4>
+        <p>Limpieza profunda o cambio de flex de carga, micrófonos, auriculares y altavoces.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h4>Software y Mantenimiento</h4>
+        <p>Actualización y restauración de iOS, solución de fallos de sistema y mantenimiento preventivo.</p>
+      </div>
+    </div>
+
+    <!-- Cotizador Rápido de Reparación -->
+    <div class="quote-box">
+      <div class="quote-header">
+        <h3><i class="fa-brands fa-whatsapp"></i> Cotiza tu Reparación</h3>
+        <p>Indica tu modelo y la falla para darte un estimado de costo y tiempo de entrega.</p>
+      </div>
+
+      <div class="quote-form">
+        <div class="form-group">
+          <label for="tech-model">Modelo del equipo</label>
+          <input type="text" id="tech-model" placeholder="Ej: iPhone 13 Pro, iPhone 11, iPad 9...">
+        </div>
+
+        <div class="form-group">
+          <label for="tech-issue">Falla o servicio que necesitas</label>
+          <select id="tech-issue">
+            <option value="Cambio de pantalla">Cambio de pantalla</option>
+            <option value="Cambio de batería">Cambio de batería</option>
+            <option value="Falla de carga / Pin de carga">Falla de carga / Pin de carga</option>
+            <option value="Falla de audio / Micrófono">Falla de audio / Micrófono</option>
+            <option value="Equipo mojado / Humedad">Equipo mojado / Humedad</option>
+            <option value="Software / No enciende">Software / No enciende</option>
+            <option value="Otro diagnóstico">Otro diagnóstico</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="tech-notes">Detalle adicional (opcional)</label>
+          <input type="text" id="tech-notes" placeholder="Ej: Se cayó y tiene líneas en la pantalla, pero sigue sonando...">
+        </div>
+      </div>
+
+      <p class="quote-disclaimer">
+        <i class="fa-solid fa-circle-info"></i> Puedes entregar tu equipo en nuestra tienda del <strong>C.C. París</strong> o coordinar recepción. El tiempo final se confirma al diagnosticar la falla.
+      </p>
+
+      <button type="button" class="btn-quote-ws" onclick="cotizarServicioTecnico()">
+        <i class="fa-brands fa-whatsapp"></i> Solicitar Cotización por WhatsApp
+      </button>
     </div>
   </section>
 
-  <!-- Filtros por Categoría -->
-  <nav class="categories" id="category-filters">
-    <button type="button" class="chip active" data-category="Todos">Todos</button>
-    <button type="button" class="chip" data-category="iPhone">iPhone</button>
-    <button type="button" class="chip" data-category="iPad">iPad</button>
-    <button type="button" class="chip" data-category="Accesorios">Accesorios</button>
-  </nav>
+  <!-- MÓDULO 3: CONÓCENOS, PREGUNTAS FRECUENTES E INFO -->
+  <section id="vista-conocenos" class="conocenos-view hidden">
+    <div class="conocenos-header">
+      <span class="conocenos-tag">Sobre Nosotros</span>
+      <h2>Tu tienda de confianza en tecnología Apple</h2>
+      <p>En <strong>IFOX CELL</strong> ofrecemos equipos verificados, accesorios originales y servicio técnico especializado con atención personalizada.</p>
+    </div>
 
-  <!-- Parrilla de Productos -->
-  <main class="container">
-    <div class="product-grid" id="product-grid"></div>
-  </main>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+          <strong>Equipos Verificados</strong>
+          <span>100% originales, libres de reporte y probados al detalle</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div>
+          <strong>Garantía en Tienda</strong>
+          <span>Respaldo real para que compres con total tranquilidad</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-truck-fast"></i>
+        <div>
+          <strong>Entregas Seguras</strong>
+          <span>Retiro personal en tienda o delivery coordinado</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="store-info-grid">
+      <div class="info-card">
+        <i class="fa-regular fa-clock"></i>
+        <h4>Horario de Atención</h4>
+        <p id="store-hours">Lunes a Sábado: 9:00 AM - 6:00 PM</p>
+        <span class="info-sub">Atención en tienda física y vía WhatsApp</span>
+      </div>
+      <div class="info-card">
+        <i class="fa-solid fa-location-dot"></i>
+        <h4>Ubicación y Entregas</h4>
+        <p id="store-location">C.C. París, Av. Lara, Barquisimeto, Edo. Lara</p>
+      </div>
+      <div class="info-card">
+        <i class="fa-brands fa-instagram"></i>
+        <h4>Síguenos en Instagram</h4>
+        <p>Mira los últimos equipos recién llegados y entregas</p>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-ig" id="ig-link">
+          <i class="fa-brands fa-instagram"></i> @ifoxcell
+        </a>
+      </div>
+    </div>
+
+    <!-- Acordeón de Preguntas Frecuentes -->
+    <div class="faq-section">
+      <h3><i class="fa-regular fa-circle-question"></i> Preguntas Frecuentes</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Cómo funciona la garantía de los equipos?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Todos nuestros equipos pasan por una revisión técnica completa antes de salir a vitrina y cuentan con garantía respaldada directamente por nuestra tienda física.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Hacen delivery en Barquisimeto y Cabudare?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, puedes retirar personalmente en nuestra tienda en el C.C. París (Av. Lara) o coordinar entrega segura con delivery en Barquisimeto y Cabudare.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Reciben equipos usados como parte de pago?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Evaluamos tu equipo Apple actual (modelo, capacidad, estado físico y condición de batería) para tomarlo como parte de pago por un modelo superior. Escríbenos al WhatsApp para cotizarlo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Qué métodos de pago aceptan?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Aceptamos divisas en efectivo ($), Zelle, Binance (USDT), Pago Móvil y transferencias bancarias nacionales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conocenos-cta">
+      <button type="button" class="btn-back-catalog" onclick="cambiarVista('catalogo')">
+        <i class="fa-solid fa-mobile-screen-button"></i> Ver Equipos Disponibles
+      </button>
+    </div>
+  </section>
+
+  <!-- Barra Flotante del Comparador -->
+  <div class="compare-bar hidden" id="compare-bar">
+    <div class="compare-bar-info">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <span id="compare-status">Selecciona 2 equipos para comparar</span>
+    </div>
+    <div class="compare-bar-actions">
+      <button type="button" class="btn-compare-clear" onclick="limpiarComparador()">Limpiar</button>
+      <button type="button" class="btn-compare-open" id="open-compare-btn" onclick="abrirComparador()" disabled>
+        Comparar
+      </button>
+    </div>
+  </div>
+
+  <!-- Ventanilla Guía del Comparador (se muestra solo la primera vez) -->
+  <div class="modal-overlay" id="compare-guide-modal">
+    <div class="compare-guide-box">
+      <div class="guide-icon">
+        <i class="fa-solid fa-scale-balanced"></i>
+      </div>
+      <h3>¿Cómo funciona el comparador?</h3>
+      <p id="guide-selected-text">Ya agregaste tu primer equipo a la lista.</p>
+      <ol class="guide-steps">
+        <li>Toca <strong>Comparar</strong> en un <strong>segundo equipo</strong> del catálogo.</li>
+        <li>Presiona el botón azul <strong>Comparar</strong> en la barra inferior para verlos lado a lado.</li>
+      </ol>
+      <button type="button" class="btn-guide-ok" onclick="cerrarGuiaComparar()">¡Entendido!</button>
+    </div>
+  </div>
+
+  <!-- Modal de Ficha Detallada del Producto -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal-box" id="modal-content"></div>
+  </div>
+
+  <!-- Modal de Comparación Lado a Lado -->
+  <div class="modal-overlay" id="compare-modal">
+    <div class="compare-modal-box" id="compare-content"></div>
+  </div>
 
   <!-- Panel Lateral del Carrito -->
   <div class="cart-overlay" id="cart-overlay">
@@ -79,10 +319,15 @@
     </aside>
   </div>
 
+  <!-- Botón Flotante de WhatsApp -->
+  <a href="#" target="_blank" rel="noopener noreferrer" class="whatsapp-float" id="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
   <!-- Pie de Página -->
   <footer class="footer">
-    <p><strong>IFOX CELL</strong> — Atención personalizada y entregas seguras</p>
-    <p class="payments">Pagos: Efectivo ($) • Pago Móvil • Transferencia • Binance</p>
+    <p><strong>IFOX CELL</strong> — Tienda Física </p>
+    <p class="payments"><i class="fa-solid fa-location-dot"></i> C.C. París, Av. Lara, Barquisimeto, Edo. Lara</p>
   </footer>
 
   <!-- Archivos JavaScript separados -->
