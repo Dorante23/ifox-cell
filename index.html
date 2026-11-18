@@ -28,6 +28,9 @@
       <button type="button" class="nav-tab active" data-vista="catalogo" onclick="cambiarVista('catalogo')">
         <i class="fa-solid fa-mobile-screen-button"></i> Catálogo
       </button>
+      <button type="button" class="nav-tab" data-vista="repuestos" onclick="cambiarVista('repuestos')">
+        <i class="fa-solid fa-microchip"></i> Repuestos
+      </button>
       <button type="button" class="nav-tab" data-vista="servicio" onclick="cambiarVista('servicio')">
         <i class="fa-solid fa-screwdriver-wrench"></i> Servicio Técnico
       </button>
@@ -73,6 +76,34 @@
     <main class="container">
       <div class="product-grid" id="product-grid"></div>
     </main>
+  </div>
+
+  <!-- MÓDULO 1.5: REPUESTOS POR MODELO -->
+  <div id="vista-repuestos" class="hidden">
+    <section class="hero">
+      <h2>Repuestos Disponibles por Modelo</h2>
+      <p>Selecciona tu modelo de iPhone para ver las calidades de pantallas, baterías y repuestos en tienda.</p>
+
+      <div class="repuestos-selector-wrap">
+        <label for="repuesto-modelo-select"><i class="fa-solid fa-mobile-screen"></i> Elige el equipo:</label>
+        <select id="repuesto-modelo-select" onchange="filtrarPorModeloRepuesto(this.value)">
+          <option value="Todos">Todos los modelos disponibles</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="filters-wrapper">
+      <nav class="categories" aria-label="Categorías de repuestos">
+        <button type="button" class="chip rep-chip active" data-reptipo="Todos">Todos</button>
+        <button type="button" class="chip rep-chip" data-reptipo="Pantalla">Pantallas</button>
+        <button type="button" class="chip rep-chip" data-reptipo="Batería">Baterías</button>
+        <button type="button" class="chip rep-chip" data-reptipo="Otros">Otros repuestos</button>
+      </nav>
+    </section>
+
+    <div class="container">
+      <div class="product-grid" id="repuestos-grid"></div>
+    </div>
   </div>
 
   <!-- MÓDULO 2: SERVICIO TÉCNICO -->
@@ -295,6 +326,39 @@
     <div class="compare-modal-box" id="compare-content"></div>
   </div>
 
+  <!-- Modal Selector de Línea WhatsApp (Consultas) -->
+  <div class="modal-overlay" id="ws-selector-modal">
+    <div class="compare-guide-box ws-selector-box">
+      <div class="ws-selector-icon">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      <h3>¿Con qué línea deseas comunicarte?</h3>
+      <p>Selecciona el canal de atención para enviar tu consulta por WhatsApp:</p>
+
+      <div class="ws-choice-list">
+        <button type="button" class="ws-choice-btn" onclick="enviarConsultaA('ventas')">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span class="ws-choice-info">
+            <strong>Atención de Ventas</strong>
+            <span>0422-6363817 • Equipos, precios y disponibilidad</span>
+          </span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <button type="button" class="ws-choice-btn" onclick="enviarConsultaA('tienda')">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span class="ws-choice-info">
+            <strong>Tienda IFOX CELL</strong>
+            <span>0412-2200980 • Tienda física y atención general</span>
+          </span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <button type="button" class="btn-ws-cancel" onclick="cerrarSelectorWhatsApp()">Cancelar</button>
+    </div>
+  </div>
+
   <!-- Panel Lateral del Carrito -->
   <div class="cart-overlay" id="cart-overlay">
     <aside class="cart-drawer">
@@ -313,14 +377,14 @@
           <strong id="cart-total">$0</strong>
         </div>
         <button type="button" class="btn-whatsapp-order" id="send-ws-btn" disabled>
-          <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          <i class="fa-brands fa-whatsapp"></i> Enviar pedido a Ventas
         </button>
       </div>
     </aside>
   </div>
 
   <!-- Botón Flotante de WhatsApp -->
-  <a href="#" target="_blank" rel="noopener noreferrer" class="whatsapp-float" id="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <a href="#" class="whatsapp-float" id="whatsapp-float" onclick="event.preventDefault(); consultarGeneral();" aria-label="Contactar por WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 

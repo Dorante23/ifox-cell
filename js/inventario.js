@@ -1,9 +1,12 @@
 // Configuración general de IFOX CELL
 const CONFIG_TIENDA = {
-  telefono: "584245405259", // <-- Pon aquí tu número de prueba (o el de Luis)
-  instagram: "https://instagram.com/",
-  horario: "Lunes a Sábado: 9:00 AM - 6:00 PM",
-  ubicacion: "C.C. París, Av. Lara, Barquisimeto, Edo. Lara (y delivery coordinado)"
+  nombre: "IFOX CELL",
+  telefono: "584226363817",
+  telefonoVentas: "584226363817", // Atención de Ventas: 0422-6363817
+  telefonoTienda: "584122200980", // Tienda IFOX CELL: 0412-2200980
+  instagram: "https://www.instagram.com/ifoxcell_?evlk=MTl6cmZnYzN4dW9nZg==",
+  ubicacion: "C.C. París, Av. Lara, Barquisimeto, Edo. Lara",
+  horario: "Lunes a Sábado: 10:00 AM - 7:00 PM"
 };
 
 // Inventario actual de la tienda
@@ -59,5 +62,119 @@ const INVENTARIO_IFOX = [
     incluye: "Equipo impecable (solo 3 ciclos de uso)",
     garantia: "Garantía verificada por tienda",
     imagen: "assets/img/ipad11.jpeg"
+  },
+  {
+    id: 5,
+    nombre: "Power Bank 20000mAh",
+    categoria: "Accesorios",
+    estado: "Nuevo",
+    recienLlegado: false,
+    precio: 0,
+    bateria: null,
+    specs: "Capacidad 20.000 mAh • Carga rápida • Múltiples puertos",
+    incluye: "Caja original + Cable de carga",
+    garantia: "Garantía verificada por tienda",
+    imagen: "assets/img/powerbank-20000.jpeg"
+  },
+  {
+    id: 6,
+    nombre: "Power Bank 10000mAh",
+    categoria: "Accesorios",
+    estado: "Nuevo",
+    recienLlegado: false,
+    precio: 0,
+    bateria: null,
+    specs: "Capacidad 10.000 mAh • Diseño compacto • Carga rápida",
+    incluye: "Caja original + Cable de carga",
+    garantia: "Garantía verificada por tienda",
+    imagen: "assets/img/powerbank-10000.jpeg",
+    enfoque: "center 82%"
+  },
+  {
+    id: 7,
+    nombre: "Cargador 20W USB-C",
+    categoria: "Accesorios",
+    estado: "Nuevo",
+    recienLlegado: false,
+    precio: 0,
+    bateria: null,
+    specs: "Adaptador de corriente 20W • Carga rápida para iPhone y iPad",
+    incluye: "Cubo cargador 20W en caja",
+    garantia: "Garantía verificada por tienda",
+    imagen: "assets/img/cargador-20w.jpeg"
+  },
+  {
+    id: 8,
+    nombre: "Apple Watch Series 10 GPS",
+    categoria: "Accesorios",
+    estado: "Nuevo",
+    recienLlegado: true,
+    precio: 0,
+    bateria: null,
+    specs: "Versión GPS • Pantalla Retina siempre activa • Nuevo",
+    incluye: "Caja sellada + Correa + Cable de carga magnético",
+    garantia: "Garantía verificada por tienda",
+    imagen: "assets/img/apple-watch-s10.jpeg",
+    enfoque: "center 90%"
+  },
+  {
+    id: 9,
+    nombre: "Mini UPS 13500mAh",
+    categoria: "Accesorios",
+    estado: "Nuevo",
+    recienLlegado: false,
+    precio: 0,
+    bateria: null,
+    specs: "Respaldo de batería 13.500 mAh para router y módem",
+    incluye: "Mini UPS + Cables de conexión + Caja",
+    garantia: "Garantía verificada por tienda",
+    imagen: "assets/img/mini-ups-13500.jpeg",
+    enfoque: "center 90%"
   }
 ];
+
+// ==========================================
+// INVENTARIO DE REPUESTOS POR MODELO
+// ==========================================
+const REPUESTOS_IFOX = [
+  {
+    id: 101,
+    modelo: "iPhone 13",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Módulo Cámara Trasera Dual iPhone 13",
+    precio: 0,
+    imagen: "assets/img/camara-trasera-iphone13.jpeg"
+  },
+  {
+    id: 102,
+    modelo: "iPhone 13",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Cámara Frontal + Módulo Face ID iPhone 13",
+    precio: 0,
+    imagen: "assets/img/camara-frontal-iphone13.jpeg"
+  },
+  {
+    id: 103,
+    modelo: "iPhone 13",
+    tipo: "Altavoz",
+    calidad: "Original Extraído",
+    nombre: "Altavoz Inferior / Timbre iPhone 13",
+    precio: 0,
+    imagen: "assets/img/altavoz-iphone13.jpeg"
+  },
+  {
+    id: 104,
+    modelo: "iPhone 13",
+    tipo: "Batería",
+    calidad: "Certificada 100%",
+    nombre: "Batería iPhone 13 (Alta Capacidad)",
+    precio: 0,
+    imagen: "assets/img/bateria-iphone13.jpeg"
+  }
+
+  
+  
+];
+
