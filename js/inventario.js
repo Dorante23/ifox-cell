@@ -131,20 +131,7 @@ const INVENTARIO_IFOX = [
     imagen: "assets/img/mini-ups-13500.jpeg",
     enfoque: "center 90%"
   },
-  {
-    id: 10,
-    nombre: "iMac 19,2 (A2116) 2019",
-    categoria: "iMac",
-    estado: "Seminuevo",
-    recienLlegado: true,
-    precio: 0,
-    bateria: null,
-    specs: "1TB HDD + SSD • 16GB RAM • Modelo A2116",
-    incluye: "Cable de corriente original",
-    garantia: "Garantía verificada por tienda",
-    imagen: "assets/img/imac-a2116-1tb.jpeg",
-    enfoque: "center 68%"
-  },
+  
   {
     id: 11,
     nombre: "iMac 19,2 (A2116) 2019",
@@ -290,5 +277,194 @@ const REPUESTOS_IFOX = [
     nombre: "Antena GPS iPhone 13",
     precio: 0,
     imagen: "assets/img/antena-gps-iphone13.jpeg"
+  },
+  {
+    id: 115,
+    modelo: "iPhone 13 Pro",
+    tipo: "Flash",
+    calidad: "Original Extraído",
+    nombre: "Flash Trasero iPhone 13 Pro",
+    precio: 0,
+    imagen: "assets/img/flash-iphone13pro.jpeg"
+  },
+  {
+    id: 116,
+    modelo: "iPhone 13 Pro",
+    tipo: "Flex",
+    calidad: "Original Extraída",
+    nombre: "Bobina de Carga Inalámbrica con Botones iPhone 13 Pro",
+    precio: 0,
+    imagen: "assets/img/bobina-botones-iphone13pro.jpeg"
+  },
+  {
+    id: 117,
+    modelo: "iPhone 13 Pro",
+    tipo: "Antena",
+    calidad: "Original Extraída",
+    nombre: "Antena de Wi-Fi iPhone 13 Pro",
+    precio: 0,
+    imagen: "assets/img/antena-wifi-iphone13pro.jpeg"
+  },
+  {
+    id: 118,
+    modelo: "iPhone 13 Pro",
+    tipo: "Flex",
+    calidad: "Original Extraído",
+    nombre: "Flex de Carga iPhone 13 Pro",
+    precio: 0,
+    imagen: "assets/img/flex-carga-iphone13pro.jpeg"
+  },
+  {
+    id: 119,
+    modelo: "iPhone 13 Pro",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Módulo de Cámara iPhone 13 Pro",
+    precio: 0,
+    imagen: "assets/img/camara-iphone13pro.jpeg"
+  },
+  {
+    id: 120,
+    modelo: "iPhone 13 Pro",
+    tipo: "Altavoz",
+    calidad: "Original Extraído",
+    nombre: "Auricular Superior iPhone 13 Pro",
+    precio: 0,
+    imagen: "assets/img/auricular-iphone13pro.jpeg"
+  },
+  {
+    id: 121,
+    modelo: "iPhone 13 Pro",
+    tipo: "Antena",
+    calidad: "Original Extraída",
+    nombre: "Antena Interna de Señal GPS / Wi-Fi iPhone 13 Pro",
+    precio: 0,
+    imagen: "assets/img/antena-gps-wifi-iphone13pro.jpeg"
+  },
+  {
+    id: 122,
+    modelo: "iPhone 13 Pro Max",
+    tipo: "Batería",
+    calidad: "Original Extraída",
+    nombre: "Batería iPhone 13 Pro Max",
+    precio: 0,
+    imagen: "assets/img/bateria-iphone13promax.jpeg"
+  },
+  {
+    id: 123,
+    modelo: "iPhone 13 Pro Max",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Módulo de Cámara iPhone 13 Pro Max",
+    precio: 0,
+    imagen: "assets/img/camara-iphone13promax.jpeg"
+  },
+  {
+    id: 124,
+    modelo: "iPhone 13 Pro Max",
+    tipo: "Altavoz",
+    calidad: "Original Extraído",
+    nombre: "Altavoz Inferior iPhone 13 Pro Max",
+    precio: 0,
+    imagen: "assets/img/altavoz-iphone13promax.jpeg"
+  },
+  {
+    id: 125,
+    modelo: "iPhone 13 Pro Max",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Cámara Frontal + Módulo Face ID iPhone 13 Pro Max",
+    precio: 0,
+    imagen: "assets/img/camara-frontal-iphone13promax.jpeg"
+  },
+  {
+    id: 126,
+    modelo: "iPhone 13 Pro Max",
+    tipo: "Vibrador",
+    calidad: "Original Extraído",
+    nombre: "Vibra col / Taptic Engine iPhone 13 Pro Max",
+    precio: 0,
+    imagen: "assets/img/vibra-col-iphone13promax.jpeg"
+  },
+  {
+    id: 127,
+    modelo: "iPhone 13 Pro Max",
+    tipo: "Antena",
+    calidad: "Original Extraída",
+    nombre: "Antena de Wi-Fi iPhone 13 Pro Max",
+    precio: 0,
+    imagen: "assets/img/antena-wifi-iphone13promax.jpeg"
+  },
+  {
+    id: 128,
+    modelo: "iPhone 15 Pro Max",
+    tipo: "Flex",
+    calidad: "Original Extraído",
+    nombre: "Flex de Carga iPhone 15 Pro Max",
+    precio: 0,
+    imagen: "assets/img/flex-carga-iphone15promax.jpeg"
+  },
+  {
+    id: 129,
+    modelo: "iPhone 14 Pro",
+    tipo: "Batería",
+    calidad: "Original Extraída",
+    nombre: "Batería iPhone 14 Pro",
+    precio: 0,
+    imagen: "assets/img/bateria-iphone14pro.jpeg"
+  },
+  {
+    id: 130,
+    modelo: "iPhone 14 Pro",
+    tipo: "Flex",
+    calidad: "Original Extraído",
+    nombre: "Micrófono Ambiental iPhone 14 Pro",
+    precio: 0,
+    imagen: "assets/img/microfono-ambiental-iphone14pro.jpeg"
+  },
+  {
+    id: 131,
+    modelo: "iPhone 14 Pro",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Módulo Cámara Trasera Triple iPhone 14 Pro",
+    precio: 0,
+    imagen: "assets/img/camara-trasera-iphone14pro.jpeg"
+  },
+  {
+    id: 132,
+    modelo: "iPhone 14 Pro",
+    tipo: "Flash",
+    calidad: "Original Extraído",
+    nombre: "Flash Trasero iPhone 14 Pro",
+    precio: 0,
+    imagen: "assets/img/flash-iphone14pro.jpeg"
+  },
+  {
+    id: 133,
+    modelo: "iPhone 14 Pro",
+    tipo: "Flex",
+    calidad: "Original Extraído",
+    nombre: "Flex de Carga iPhone 14 Pro",
+    precio: 0,
+    imagen: "assets/img/flex-carga-iphone14pro.jpeg"
+  },
+  {
+    id: 134,
+    modelo: "iPhone 14 Pro",
+    tipo: "Flex",
+    calidad: "Original Extraída",
+    nombre: "Bobina de Carga Inalámbrica con Botones iPhone 14 Pro",
+    precio: 0,
+    imagen: "assets/img/bobina-botones-iphone14pro.jpeg"
+  },
+  {
+    id: 135,
+    modelo: "iPhone 14 Pro",
+    tipo: "Antena",
+    calidad: "Original Extraída",
+    nombre: "Antena de Wi-Fi iPhone 14 Pro",
+    precio: 0,
+    imagen: "assets/img/antena-wifi-iphone14pro.jpeg"
   }
 ];
