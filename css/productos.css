@@ -720,3 +720,136 @@
 #repuestos-grid .card-img img {
   object-position: center 62%;
 }
+
+/* ==========================================
+   DISEÑO MÓVIL OPTIMIZADO (IFOX CELL)
+   ========================================== */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding: 14px;
+  }
+
+  /* Menos margen lateral en el header para darle espacio a los 4 módulos */
+  header > div,
+  .header-content {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* Los 4 módulos superiores centrados y encajados en una sola fila */
+  header .nav-tabs,
+  .nav-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 2px !important;
+    padding: 4px !important;
+  }
+
+  header .nav-tab,
+  .nav-tab {
+    flex: 1 1 auto !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-size: 0.67rem !important;
+    padding: 6px 5px !important;
+    gap: 3px !important;
+  }
+
+  header .nav-tab i,
+  .nav-tab i {
+    font-size: 0.66rem !important;
+  }
+
+  /* Contenedor de filtros al 100% */
+  .filters-wrapper {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    align-items: stretch !important;
+  }
+
+  /* Filtros de categorías y repuestos deslizables en 1 sola línea */
+  .categories {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 8px;
+    padding: 4px 16px 8px 16px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .categories::-webkit-scrollbar {
+    display: none;
+  }
+  .chip {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+
+  /* Selector de modelo y buscador en Repuestos al 100% */
+  .repuestos-selector-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .repuestos-selector-wrap select,
+  .search-box {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 1 columna en móviles */
+  .product-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 0 !important;
+  }
+
+  .card-img {
+    height: 210px !important;
+  }
+
+  .modal-details {
+    padding: 18px;
+  }
+
+  .compare-modal-box {
+    padding: 16px;
+    overflow-x: auto;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+
+  #compare-bar {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

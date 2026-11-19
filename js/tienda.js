@@ -6,10 +6,12 @@ let condicionActual = "Todos";
 let textoBusqueda = "";
 let modeloRepuestoActual = "Todos";
 let tipoRepuestoActual = "Todos";
+let textoBusquedaRepuesto = "";
 let mensajeConsultaPendiente = "";
 
 const grid = document.getElementById("product-grid");
 const searchInput = document.getElementById("search-input");
+const searchRepuestoInput = document.getElementById("search-repuesto-input");
 const categoryBtns = document.querySelectorAll(".chip:not(.rep-chip)");
 const conditionBtns = document.querySelectorAll(".cond-chip");
 const productModal = document.getElementById("product-modal");
@@ -29,6 +31,13 @@ function obtenerCatalogoCompleto() {
     ...INVENTARIO_IFOX,
     ...(typeof REPUESTOS_IFOX !== "undefined" ? REPUESTOS_IFOX : [])
   ];
+}
+
+function normalizarTexto(texto) {
+  return (texto || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 // Guardar y cargar estado en la memoria del navegador (localStorage)
@@ -192,14 +201,17 @@ function insertarAvisoEnGrid(gridElement) {
 function mostrarProductos() {
   insertarAvisoEnGrid(grid);
 
+  const termino = normalizarTexto(textoBusqueda);
+
   const filtrados = INVENTARIO_IFOX.filter(prod => {
     const coincideCat = categoriaActual === "Todos" || prod.categoria === categoriaActual;
     const coincideCond =
       condicionActual === "Todos" ||
       (condicionActual === "Nuevo" && prod.estado === "Nuevo") ||
       (condicionActual === "Seminuevo" && (prod.estado === "Seminuevo" || prod.estado === "Como nuevo"));
-    const coincideTxt = prod.nombre.toLowerCase().includes(textoBusqueda.toLowerCase()) ||
-                        prod.specs.toLowerCase().includes(textoBusqueda.toLowerCase());
+    const coincideTxt =
+      normalizarTexto(prod.nombre).includes(termino) ||
+      normalizarTexto(prod.specs).includes(termino);
     return coincideCat && coincideCond && coincideTxt;
   });
 
@@ -269,14 +281,22 @@ function mostrarRepuestos() {
 
   insertarAvisoEnGrid(repGrid);
 
+  const termino = normalizarTexto(textoBusquedaRepuesto);
+  const categoriasPrincipales = ["Pantalla", "Batería", "Cámara", "Flex", "Antena", "Altavoz"];
+
   const filtrados = REPUESTOS_IFOX.filter(rep => {
     const coincideModelo = modeloRepuestoActual === "Todos" || rep.modelo === modeloRepuestoActual;
     const coincideTipo =
       tipoRepuestoActual === "Todos" ||
       (tipoRepuestoActual === "Otros"
-        ? rep.tipo !== "Pantalla" && rep.tipo !== "Batería"
+        ? !categoriasPrincipales.includes(rep.tipo)
         : rep.tipo === tipoRepuestoActual);
-    return coincideModelo && coincideTipo;
+    const coincideTxt =
+      normalizarTexto(rep.nombre).includes(termino) ||
+      normalizarTexto(rep.modelo).includes(termino) ||
+      normalizarTexto(rep.tipo).includes(termino);
+
+    return coincideModelo && coincideTipo && coincideTxt;
   });
 
   if (filtrados.length === 0) {
@@ -701,6 +721,13 @@ searchInput.addEventListener("input", (e) => {
   textoBusqueda = e.target.value;
   mostrarProductos();
 });
+
+if (searchRepuestoInput) {
+  searchRepuestoInput.addEventListener("input", (e) => {
+    textoBusquedaRepuesto = e.target.value;
+    mostrarRepuestos();
+  });
+}
 
 productModal.addEventListener("click", (e) => {
   if (e.target === productModal) cerrarModal();

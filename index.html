@@ -62,6 +62,7 @@
         <button type="button" class="chip active" data-category="Todos">Todos</button>
         <button type="button" class="chip" data-category="iPhone">iPhone</button>
         <button type="button" class="chip" data-category="iPad">iPad</button>
+        <button type="button" class="chip" data-category="iMac">iMac</button>
         <button type="button" class="chip" data-category="Accesorios">Accesorios</button>
       </nav>
 
@@ -90,15 +91,23 @@
           <option value="Todos">Todos los modelos disponibles</option>
         </select>
       </div>
+       <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="search-repuesto-input" placeholder="Buscar repuesto (ej. flex, antena, batería, iPhone 13...)">
+    </div>
     </section>
 
     <section class="filters-wrapper">
       <nav class="categories" aria-label="Categorías de repuestos">
-        <button type="button" class="chip rep-chip active" data-reptipo="Todos">Todos</button>
-        <button type="button" class="chip rep-chip" data-reptipo="Pantalla">Pantallas</button>
-        <button type="button" class="chip rep-chip" data-reptipo="Batería">Baterías</button>
-        <button type="button" class="chip rep-chip" data-reptipo="Otros">Otros repuestos</button>
-      </nav>
+      <button type="button" class="chip rep-chip active" data-reptipo="Todos">Todos</button>
+      <button type="button" class="chip rep-chip" data-reptipo="Pantalla">Pantallas</button>
+      <button type="button" class="chip rep-chip" data-reptipo="Batería">Baterías</button>
+      <button type="button" class="chip rep-chip" data-reptipo="Cámara">Cámaras</button>
+      <button type="button" class="chip rep-chip" data-reptipo="Flex">Flex y Carga</button>
+      <button type="button" class="chip rep-chip" data-reptipo="Antena">Antenas</button>
+      <button type="button" class="chip rep-chip" data-reptipo="Altavoz">Audio / Altavoz</button>
+      <button type="button" class="chip rep-chip" data-reptipo="Otros">Otros repuestos</button>
+    </nav>
     </section>
 
     <div class="container">
