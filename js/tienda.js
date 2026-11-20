@@ -357,7 +357,7 @@ function abrirModalRepuesto(id) {
   else if (rep.tipo === "Altavoz") iconoFallback = "fa-volume-high";
 
   const contenidoImg = rep.imagen
-    ? `<img src="${rep.imagen}" alt="${rep.nombre}" style="object-fit: contain; background: #1e293b; ${rep.enfoque ? `object-position: ${rep.enfoque};` : ""}" onerror="this.outerHTML='<i class=\\'fa-solid ${iconoFallback} fallback-icon\\'></i>'">`
+    ? `<img src="${rep.imagen}" alt="${rep.nombre}" style="${rep.enfoque ? `object-position: ${rep.enfoque};` : ""}" onerror="this.outerHTML='<i class=\\'fa-solid ${iconoFallback} fallback-icon\\'></i>'">`
     : `<i class="fa-solid ${iconoFallback} fallback-icon"></i>`;
 
   modalContent.innerHTML = `
@@ -388,6 +388,10 @@ function abrirModalRepuesto(id) {
   `;
 
   productModal.classList.add("open");
+  const imgModal = modalContent.querySelector(".modal-img img");
+  if (imgModal && imgModal.complete && imgModal.naturalWidth > 0) {
+    configurarScrollImagenModal(imgModal);
+  }
 }
 
 function cotizarRepuestoInstalado(id) {
@@ -592,6 +596,10 @@ function abrirModal(id) {
   `;
 
   productModal.classList.add("open");
+  const imgModal = modalContent.querySelector(".modal-img img");
+  if (imgModal && imgModal.complete && imgModal.naturalWidth > 0) {
+    configurarScrollImagenModal(imgModal);
+  }
 }
 
 function cerrarModal() {
@@ -760,6 +768,36 @@ document.getElementById("close-cart-btn").addEventListener("click", () => cartOv
 cartOverlay.addEventListener("click", (e) => {
   if (e.target === cartOverlay) cartOverlay.classList.remove("open");
 });
+
+// Activa scroll en fotos verticales y muestra aviso de 5s solo en teléfono
+function configurarScrollImagenModal(img) {
+  const box = img.closest(".modal-img");
+  const modalBox = img.closest(".modal-box");
+  if (!box || !modalBox) return;
+
+  const esFotoVertical = img.naturalHeight > img.naturalWidth * 1.05;
+  box.classList.toggle("scrollable", esFotoVertical);
+  box.scrollTop = 0;
+
+  const avisoPrevio = modalBox.querySelector(".mobile-scroll-toast");
+  if (avisoPrevio) avisoPrevio.remove();
+
+  if (esFotoVertical && window.innerWidth <= 640) {
+    const toast = document.createElement("div");
+    toast.className = "mobile-scroll-toast";
+    toast.innerHTML = `<i class="fa-solid fa-arrows-up-down"></i> Desliza la foto arriba o abajo`;
+    modalBox.appendChild(toast);
+
+    setTimeout(() => toast.classList.add("hide"), 4550);
+    setTimeout(() => toast.remove(), 5000);
+  }
+}
+
+document.addEventListener("load", function (e) {
+  if (e.target && e.target.closest && e.target.closest(".modal-img")) {
+    configurarScrollImagenModal(e.target);
+  }
+}, true);
 
 // Inicializar cargando los datos guardados del usuario
 cargarEstado();

@@ -131,7 +131,6 @@ const INVENTARIO_IFOX = [
     imagen: "assets/img/mini-ups-13500.jpeg",
     enfoque: "center 90%"
   },
-  
   {
     id: 11,
     nombre: "iMac 19,2 (A2116) 2019",
@@ -466,5 +465,176 @@ const REPUESTOS_IFOX = [
     nombre: "Antena de Wi-Fi iPhone 14 Pro",
     precio: 0,
     imagen: "assets/img/antena-wifi-iphone14pro.jpeg"
+  },
+  {
+    id: 136,
+    modelo: "iPhone 14",
+    tipo: "Lector SIM",
+    calidad: "Original Extraído",
+    nombre: "Porta Chip / Lector SIM iPhone 14",
+    precio: 0,
+    imagen: "assets/img/bandeja-sim-iphone14.jpeg"
+  },
+  {
+    id: 137,
+    modelo: "iPhone 14",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Módulo Cámara Trasera Dual iPhone 14",
+    precio: 0,
+    imagen: "assets/img/camara-trasera-iphone14.jpeg"
+  },
+  {
+    id: 138,
+    modelo: "iPhone 14",
+    tipo: "Flex",
+    calidad: "Original Extraído",
+    nombre: "Flex de Botones de Volumen / Encendido iPhone 14",
+    precio: 0,
+    imagen: "assets/img/botones-iphone14.jpeg"
+  },
+  {
+    id: 139,
+    modelo: "iPhone 14",
+    tipo: "Batería",
+    calidad: "Original Extraída",
+    nombre: "Batería iPhone 14",
+    precio: 0,
+    imagen: "assets/img/bateria-iphone14.jpeg"
+  },
+  {
+    id: 140,
+    modelo: "iPhone 14",
+    tipo: "Flex",
+    calidad: "Original Extraído",
+    nombre: "Flex de Carga iPhone 14",
+    precio: 0,
+    imagen: "assets/img/flex-carga-iphone14.jpeg"
+  },
+  {
+    id: 141,
+    modelo: "iPhone 14",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Cámara Frontal + Módulo Face ID iPhone 14",
+    precio: 0,
+    imagen: "assets/img/camara-frontal-iphone14.jpeg"
+  },
+  {
+    id: 142,
+    modelo: "iPhone 14",
+    tipo: "Sensor",
+    calidad: "Original Extraído",
+    nombre: "Sensor de Proximidad iPhone 14",
+    precio: 0,
+    imagen: "assets/img/sensor-proximidad-iphone14.jpeg"
+  },
+  {
+    id: 143,
+    modelo: "iPhone 14",
+    tipo: "Vibrador",
+    calidad: "Original Extraído",
+    nombre: "Vibra col / Taptic Engine iPhone 14",
+    precio: 0,
+    imagen: "assets/img/vibra-col-iphone14.jpeg"
+  },
+  {
+    id: 144,
+    modelo: "iPhone 14",
+    tipo: "Altavoz",
+    calidad: "Original Extraído",
+    nombre: "Altavoz Superior / Auricular iPhone 14",
+    precio: 0,
+    imagen: "assets/img/auricular-iphone14.jpeg"
+  },
+  {
+    id: 145,
+    modelo: "iPhone 14",
+    tipo: "Altavoz",
+    calidad: "Original Extraído",
+    nombre: "Altavoz Inferior / Timbre iPhone 14",
+    precio: 0,
+    imagen: "assets/img/altavoz-iphone14.jpeg"
+  },
+  {
+    id: 146,
+    modelo: "iPhone 16e",
+    tipo: "Sensor",
+    calidad: "Original Extraído",
+    nombre: "Sensor de Proximidad iPhone 16e",
+    precio: 0,
+    imagen: "assets/img/sensor-proximidad-iphone16e.jpeg"
+  },
+  {
+    id: 147,
+    modelo: "iPhone 16e",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Cámara Frontal iPhone 16e",
+    precio: 0,
+    imagen: "assets/img/camara-frontal-iphone16e.jpeg"
+  },
+  {
+    id: 148,
+    modelo: "iPhone 16e",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Cámara Trasera iPhone 16e",
+    precio: 0,
+    imagen: "assets/img/camara-trasera-iphone16e.jpeg"
+  },
+  {
+    id: 149,
+    modelo: "iPhone 16e",
+    tipo: "Carcasa",
+    calidad: "Original Extraído",
+    nombre: "Housing / Chasis Trasero iPhone 16e",
+    precio: 0,
+    imagen: "assets/img/housing-iphone16e.jpeg"
+  },
+  {
+    id: 150,
+    modelo: "iPhone 16 Pro Max",
+    tipo: "Sensor",
+    calidad: "Original Extraído",
+    nombre: "Sensor de Proximidad iPhone 16 Pro Max",
+    precio: 0,
+    imagen: "assets/img/sensor-proximidad-iphone16promax.jpeg"
+  },
+  {
+    id: 151,
+    modelo: "iPhone 16 Pro Max",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Cámara Frontal + Módulo Face ID iPhone 16 Pro Max",
+    precio: 0,
+    imagen: "assets/img/camara-frontal-iphone16promax.jpeg"
+  },
+  {
+    id: 152,
+    modelo: "iPhone 16 Pro Max",
+    tipo: "Sensor",
+    calidad: "Original Extraído",
+    nombre: "Sensor LiDAR iPhone 16 Pro Max",
+    precio: 0,
+    imagen: "assets/img/lidar-iphone16promax.jpeg"
+  },
+  {
+    id: 153,
+    modelo: "iPhone 16 Pro Max",
+    tipo: "Altavoz",
+    calidad: "Original Extraído",
+    nombre: "Altavoz Inferior iPhone 16 Pro Max",
+    precio: 0,
+    imagen: "assets/img/altavoz-iphone16promax.jpeg"
+  },
+  {
+    id: 154,
+    modelo: "iPhone 16 Pro Max",
+    tipo: "Cámara",
+    calidad: "Original Extraída",
+    nombre: "Módulo Cámara Trasera Triple iPhone 16 Pro Max",
+    precio: 0,
+    imagen: "assets/img/camara-trasera-iphone16promax.jpeg"
   }
 ];
